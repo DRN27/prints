@@ -30,10 +30,10 @@ body {
     height: 985px;
 }
 
-.page2__header {
+/* .page2__header {
 	background: url(/images/bg-page-2.png) no-repeat top;
 	background-size: cover;
-}
+} */
 
 .top-row, .bottom-row {
     width: 100%;
