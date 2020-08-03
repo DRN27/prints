@@ -143,7 +143,7 @@ new Vue({
                 `;
                 Email.send({
                     SecureToken: "6d9bcc5d-21ce-4dc2-a621-926ad5a34b55",
-                    To : 'rusbear101@yandex.ru',
+                    To : 'Karlionov@gmail.com',
                     From : "printrepublicmail@gmail.com",
                     Subject : "Новая заявка на printrepublic.by",
                     Body : message,
