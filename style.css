@@ -627,7 +627,7 @@ sup {
 }
 
 .section-7 .forma__img {
-	width: 300px;
+	min-width: 300px;
 	height: 340px;
 	background-position: top center;
 	background-repeat: no-repeat;

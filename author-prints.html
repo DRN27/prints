@@ -102,6 +102,7 @@
 
 						<select @change="selectType">
 							<option 
+								:selected='type.typeName === currentType.typeName'
 								:value="type.typeName"
 								v-for="type in currentObj.type"
 							>
@@ -111,6 +112,7 @@
 
 						<select @change="selectColor">
 							<option 
+								:selected='color.name === currentColor.name'
 								:value="color.id"
 								v-for="color in currentType.colors"
 								v-bind:style="{
@@ -123,7 +125,10 @@
 						</select>
 
 						<select>
-							<option v-for="size in currentColor.size">
+							<option 
+								:selected='size === currentSize'
+								v-for="size in currentColor.size"
+							>
 								{{size}}
 							</option>
 						</select>
