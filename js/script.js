@@ -13,7 +13,7 @@ new Vue({
             currentObj: products[0], 
             currentType: products[0].type[0],
             currentColor: products[0].type[0].colors[0],
-            size: products[0].type[0].colors[0].size[0],
+            currentSize: products[0].type[0].colors[0].size[0],
             products: products,
             cesler: true,
             sykova: false,
@@ -39,7 +39,7 @@ new Vue({
             });
             this.currentType = this.currentObj.type[0];
             this.currentColor = this.currentObj.type[0].colors[0];
-            this.size = this.currentColor.size[0];
+            this.currentSize = this.currentColor.size[0];
         },
 
         selectType(event) {
@@ -51,7 +51,7 @@ new Vue({
                 });
             });
             this.currentColor = this.currentType.colors[0];
-            this.size = this.currentColor.size[0];
+            this.currentSize = this.currentColor.size[0];
         },
 
         selectColor(event) {
@@ -68,11 +68,11 @@ new Vue({
                         
                 });
             });
-            this.size = this.currentColor.size[0];
+            this.currentSize = this.currentColor.size[0];
         },
 
         selectSize(event) {
-            this.size = event.target.value;
+            this.currentSize = event.target.value;
         },
 
         selectCesler() {
@@ -97,7 +97,6 @@ new Vue({
             this.getImg(event);
 
             this.fileName = event.target.value.split('/').pop().split('\\').pop();
-            console.log(this.fileName);
             this.urlImg = URL.createObjectURL(event.target.files[0]);
         },
 
@@ -139,11 +138,11 @@ new Vue({
                     Контактный телефон: ${this.phone} <br>
                     ${this.currentObj.name} ${this.currentType.typeName} <br>
                     цвет: ${this.currentColor.name} <br>
-                    размер: ${this.size}
+                    размер: ${this.currentSize}
                 `;
                 Email.send({
                     SecureToken: "6d9bcc5d-21ce-4dc2-a621-926ad5a34b55",
-                    To : 'Karlionov@gmail.com',
+                    To : 'rusbear101@yandex.ru',
                     From : "printrepublicmail@gmail.com",
                     Subject : "Новая заявка на printrepublic.by",
                     Body : message,
