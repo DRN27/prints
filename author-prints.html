@@ -1,15 +1,34 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Print Republic</title>
+	<title>Print Republic - авторские принты</title>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KHK6SHV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 	<link rel="stylesheet" href="style.css">
 	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+	
+	<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KHK6SHV');</script>
+<!-- End Google Tag Manager -->
+	
+	
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KHK6SHV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 	<div id="app">
 		<header class="header page2__header" id="yak1">
 			<div class="top-row">
@@ -21,11 +40,13 @@
 						<a href="#ordermap">Магазин в ТЦ Замок</a>
 						<span>пр. Победителей 65</span>
 						<a href="tel:+375296540630">+375(29)654-06-30</a>
+						<a>Ежедневно с 10 до 22:00</a>
 					</div>
 					<div class="top-sub-block">
 						<a href="#ordermap">Оптовый отдел</a>
 						<a href="mailto:sales@prp.by">sales@prp.by</a>
 						<a href="tel:+375296440630">+375(29)644-06-30</a>
+						<a>Пн-Пт с 10 до 19:00</a>
 					</div>
 				</div>
 			</div>
@@ -156,19 +177,25 @@
 						<input type="text" placeholder="Телефон" v-model="phone" required>
 						<input type="text" placeholder="E-mail" v-model="email" required>
 						<button class="block-btn custom-print__button" type="button">
-							<a href="#yak1">Выбрать авторский принт</a> 
+							<a href="index.html#form">Загрузить свой принт</a> 
                         </button>
-						<p class="amount">Итого к оплате: <strong>{{currentType.price + 10}}</strong></p>
+						<p class="amount">Итого к оплате: <strong>{{round(currentType.price + 10 - (currentType.price + 10) * discountSize)}} BYN</strong></p>
 					</div>
 				</div>
 				<div class="forma__discount">
-					<input type="text" class="discount__input" placeholder="Скидочный код">
-					<button class="block-btn discount__button" type="button">Применить</button>
+					<input type="text" class="discount__input" placeholder="Скидочный код" v-model="promoCode">
+					<button class="block-btn discount__button" type="button" @click=discount>Применить</button>
 				</div>
 				<div v-if="modal">
-					<h3>{{modalText}}</h3>
+					<h4 class="modalWindow" style="margin-top: 0; color: red; max-width: 295px; text-align: center;">{{modalText}}</h4>
 				</div>
-				<button type="submit" class="btn forma__btn">Отправить заяку на печать!</button>
+				<button type="submit" class="btn forma__btn" v-bind:class="{btn_disabled: isDisabled }" :disabled="isDisabled">
+					<span v-if="!isDisabled">Отправить заяку на печать!</span>
+					<div v-if="isDisabled" class="spiner-wrapper">
+						<p>Файл загружается</p>
+						<div class="loader"></div>
+					</div>
+				</button>
 				<p class="form__caption">После получения заказа с вами свяжется наш менеджер для уточнения всех деталей</p>
 			</form>
 		</div>
@@ -199,5 +226,8 @@
 
 	<script src="https://smtpjs.com/v3/smtp.js"></script>
 	<script type="module" src="js/script.js"></script>
+
+<script async src="//call-tracking.by/scripts/calltracking.js?707e301d-d346-4c8c-a95b-b1a00321e251"></script>
+<script type="text/javascript" src="https://spikmi.com/Widget?Id=1702"></script>
 </body>
 </html>

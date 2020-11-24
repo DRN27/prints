@@ -91,11 +91,6 @@ export const authorPrints = {
             style: "background: #fff"
         },
         {
-            title: "Филин и луна",
-            imgSrc: "images/medvedeva/18.png",
-            style: "background: #fff"
-        },
-        {
             title: "Хоба!",
             imgSrc: "images/medvedeva/19.png",
             style: "background: #fff"
@@ -355,91 +350,7 @@ export const authorPrints = {
             imgSrc: "images/Cesler/3.png",
             style: "background: #fff"
         },
-        {
-            title: "Military 7",
-            imgSrc: "images/Cesler/4.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military 7.62x39 Made in China",
-            imgSrc: "images/Cesler/5.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military 8",
-            imgSrc: "images/Cesler/6.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military 8",
-            imgSrc: "images/Cesler/7.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military 11. Nitro Club",
-            imgSrc: "images/Cesler/8.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military 16",
-            imgSrc: "images/Cesler/9.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military 17",
-            imgSrc: "images/Cesler/10.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military 18",
-            imgSrc: "images/Cesler/11.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military 19",
-            imgSrc: "images/Cesler/12.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military U.S.",
-            imgSrc: "images/Cesler/13.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military. 303",
-            imgSrc: "images/Cesler/14.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military. A Pallottola",
-            imgSrc: "images/Cesler/15.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military. Pistol Bal",
-            imgSrc: "images/Cesler/16.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military. RDS",
-            imgSrc: "images/Cesler/17.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military. Калашмайстер",
-            imgSrc: "images/Cesler/18.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military. Картечь",
-            imgSrc: "images/Cesler/19.png",
-            style: "background: #786e3a"
-        },
-        {
-            title: "Military. Оружейный магазин",
-            imgSrc: "images/Cesler/20.png",
-            style: "background: #786e3a"
-        },
+        
         {
             title: "Military. ОСК",
             imgSrc: "images/Cesler/21.png",
@@ -504,11 +415,6 @@ export const authorPrints = {
             title: "Гуд найт",
             imgSrc: "images/Cesler/33.png",
             style: "background: #cfcfcf"
-        },
-        {
-            title: "Гуд найт",
-            imgSrc: "images/Cesler/34.png",
-            style: ""
         },
         {
             title: "Дажымки",
@@ -701,11 +607,6 @@ export const authorPrints = {
             style: "background: #a52727"
         },
         {
-            title: "Плейбой",
-            imgSrc: "images/Cesler/72.png",
-            style: "background: #a52727"
-        },
-        {
             title: "Полисмент",
             imgSrc: "images/Cesler/73.png",
             style: "background: #2186cc"
@@ -796,7 +697,7 @@ export const authorPrints = {
             style: "background: #1f359b"
         },
         {
-            title: "Серый",
+            title: "Север",
             imgSrc: "images/Cesler/91.png",
             style: "background: #cfcfcf"
         },
@@ -929,6 +830,91 @@ export const authorPrints = {
             title: "Яблочный штрудель",
             imgSrc: "images/Cesler/117.png",
             style: "background: #000"
+        },
+        {
+            title: "Military 7",
+            imgSrc: "images/Cesler/4.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military 7.62x39 Made in China",
+            imgSrc: "images/Cesler/5.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military 8",
+            imgSrc: "images/Cesler/6.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military 8",
+            imgSrc: "images/Cesler/7.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military 11. Nitro Club",
+            imgSrc: "images/Cesler/8.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military 16",
+            imgSrc: "images/Cesler/9.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military 17",
+            imgSrc: "images/Cesler/10.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military 18",
+            imgSrc: "images/Cesler/11.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military 19",
+            imgSrc: "images/Cesler/12.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military U.S.",
+            imgSrc: "images/Cesler/13.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military. 303",
+            imgSrc: "images/Cesler/14.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military. A Pallottola",
+            imgSrc: "images/Cesler/15.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military. Pistol Bal",
+            imgSrc: "images/Cesler/16.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military. RDS",
+            imgSrc: "images/Cesler/17.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military. Калашмайстер",
+            imgSrc: "images/Cesler/18.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military. Картечь",
+            imgSrc: "images/Cesler/19.png",
+            style: "background: #786e3a"
+        },
+        {
+            title: "Military. Оружейный магазин",
+            imgSrc: "images/Cesler/20.png",
+            style: "background: #786e3a"
         },
     ]
 }

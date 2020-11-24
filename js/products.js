@@ -386,7 +386,7 @@ export const products = [
                         size: ['S', 'M', 'L', 'X', 'XL', 'XXL']
                     },
                     {
-                        id: 49,
+                        id: 499,
                         name: 'Черный',
                         colorCode: '#000000',
                         url: "url('images/constructor/hudi/2.jpg')",

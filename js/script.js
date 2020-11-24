@@ -27,7 +27,11 @@ new Vue({
             email: '',
             phone: '',
             modal: false,
-            modalText: ''
+            modalText: '',
+            promoCode: '',
+            discountSize: 0,
+            discountMessage: '',
+            isDisabled: false
         }
     },
     methods: {
@@ -125,12 +129,15 @@ new Vue({
 
         sendEmail(event) {
             event.preventDefault();
+            this.isDisabled = true;
+            this.modal = false;
             if (this.dataUri === '')  {
                 this.modalText = 'Выберите, пожалуйста, принт!'
                     this.modal = true;
                     setInterval(() => {
                         this.modal = false;
                     }, 4000);
+                    this.isDisabled = false;
             } else {
                 const message = `
                     ${this.name} оставил заяку на печать. <br>
@@ -138,35 +145,86 @@ new Vue({
                     Контактный телефон: ${this.phone} <br>
                     ${this.currentObj.name} ${this.currentType.typeName} <br>
                     цвет: ${this.currentColor.name} <br>
-                    размер: ${this.currentSize}
+                    размер: ${this.currentSize} <br>
+                    промокод: ${this.discountMessage}
                 `;
-                Email.send({
-                    SecureToken: "6d9bcc5d-21ce-4dc2-a621-926ad5a34b55",
-                    To : 'Karlionov@gmail.com',
-                    From : "printrepublicmail@gmail.com",
-                    Subject : "Новая заявка на printrepublic.by",
-                    Body : message,
-                        Attachments : [
-                            {   
-                                name : this.fileName,
-                                data: this.dataUri
-                            }
-                        ]
-                }).then( res => {
-                    this.modalText = 'Ваша заявка отправлена'
-                    this.modal = true;
-                    setInterval(() => {
-                        this.modal = false;
-                    }, 8000);
-                }, err => {
-                    this.modalText = 'Произошла ошибка, попробуйте позже'
-                    this.modal = true;
-                    setInterval(() => {
-                        this.modal = false;
-                    }, 8000);
-                });
+
+
+                fetch('mail.php', {
+                    method: 'POST',
+                    body: message
+                }).then(res => res.json()).then(data => {
+                    if (data.status === 'ok') {
+                        // this.modalText = `Размер вашей скидки - ${data.discount} %. Скидка действует на все товары`;
+                        // this.discountSize = data.discount / 100;
+                        // this.modal = true;
+                        // this.discountMessage = `${this.promoCode}, скидка - ${data.discount}%`
+                        console.log('php cool')
+                    } else {
+                        // this.modalText = data.reason;   
+                        // this.modal = true;
+                        console.log('error')
+                    }
+                })
+
+
+                // Email.send({
+                //     Host : "smtp.gmail.com",
+                //     Username : "printrepublicmail@gmail.com",
+                //     Password : "print2503!",
+                //     // To : 'info@printrepublic.by',
+                //     To: 'rusbear101@yandex.ru',
+                //     From : 'printrepublicmail@gmail.com',
+                //     Subject : 'Новая заявка на printrepublic.by',
+                //     Body : message,
+                //         Attachments: [
+                //             {   
+                //                 name : this.fileName,
+                //                 data: this.dataUri
+                //             }
+                //         ]
+                // }).then( res => {
+                //     this.modalText = 'Ваша заявка отправлена'
+                //     this.modal = true;
+                //     this.email = this.phone = this.name = this.promoCode = this.urlImg = '';
+                //     this.fileName = 'Загрузить принт';
+                //     this.isDisabled = false;
+                // }, err => {
+                //     this.modalText = 'Произошла ошибка, попробуйте позже'
+                //     this.modal = true;
+                //     this.isDisabled = false;
+                // });
             }
             
+        },
+
+        discount() {
+            this.discountSize = 0;
+            this.modalText = '';
+            this.modal = false;
+            this.discountMessage = '';
+
+            let data = new FormData();
+            data.append('code', this.promoCode);
+            
+            fetch('discount.php', {
+                method: 'POST',
+                body: data
+            }).then(res => res.json()).then(data => {
+                if (data.status === 'ok') {
+                    this.modalText = `Размер вашей скидки - ${data.discount} %. Скидка действует на все товары`;
+                    this.discountSize = data.discount / 100;
+                    this.modal = true;
+                    this.discountMessage = `${this.promoCode}, скидка - ${data.discount}%`
+                } else {
+                    this.modalText = data.reason;   
+                    this.modal = true;
+                }
+            })
+        }, 
+
+        round(value) {
+            return value.toFixed(2);
         }
     }
-});
+}); 
